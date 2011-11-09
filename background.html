@@ -1,0 +1,26 @@
+<script>
+	/**
+	* Send highlight request to content script of active tab.
+	*/
+	chrome.browserAction.onClicked.addListener(function(tab) {
+		// alert("BrowserAction onClicked");
+		chrome.tabs.getSelected(null, function(tab) {
+			var color1 = localStorage["color1"] || "yellow";
+			var color2 = localStorage["color2"] || "red";
+			var color3 = localStorage["color3"] || "_";
+			var param = {
+				greeting: "highlight",
+				color1: color1,
+				color2: color2,
+				color3: color3
+			};
+			chrome.tabs.sendRequest(tab.id, param, function(response) {
+				console.log("highlight response");
+			});
+		});
+	});
+
+	function hoge() {
+		alert("hoge");
+	}
+</script>

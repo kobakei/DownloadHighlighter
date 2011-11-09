@@ -1,0 +1,23 @@
+{
+  "name": "DownloadHighlighter",
+  "version": "0.5",
+  "description": "Highlights all links to archive/executable files in your browsing page.",
+  "icons": {
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["jquery-1.7.min.js", "contentscript.js"]
+    }
+  ],
+  "background_page": "background.html",
+  "browser_action": {
+    "default_icon": "icon128.png",
+    "default_title": "DownloadHighlighter"
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "options_page": "options.html"
+}

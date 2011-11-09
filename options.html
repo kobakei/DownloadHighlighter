@@ -1,0 +1,102 @@
+<html>
+	<head><title>Download Highlighter</title></head>
+	<script type="text/javascript">
+	// Save options to localStorage		
+	function save_options() {
+		// archive
+		var select1 = document.getElementById("color1");
+		var color1 = select1.children[select1.selectedIndex].value;
+		localStorage["color1"] = color1;
+
+		// executable
+		var select2 = document.getElementById("color2");
+		var color2 = select2.children[select2.selectedIndex].value;
+		localStorage["color2"] = color2;
+
+		// executable
+		var select3 = document.getElementById("color3");
+		var color3 = select3.children[select3.selectedIndex].value;
+		localStorage["color3"] = color3;
+
+		alert("Options saved.");
+	}
+
+	// Restores select box state to saved value from localStorage
+	function restore_options() {
+		var color1 = localStorage["color1"];
+		if (color1) {
+			var select1 = document.getElementById("color1");
+			for (var i = 0; i < select1.children.length; i++) {
+				var child = select1.children[i];
+				if (child.value == color1) {
+					child.selected = "true";
+				}
+			}
+		}
+		var color2 = localStorage["color2"];
+		if (color2) {
+			var select2 = document.getElementById("color2");
+			for (var i = 0; i < select2.children.length; i++) {
+				var child = select2.children[i];
+				if (child.value == color2) {
+					child.selected = "true";
+				}
+			}
+		}
+		var color3 = localStorage["color3"];
+		if (color3) {
+			var select3 = document.getElementById("color3");
+			for (var i = 0; i < select3.children.length; i++) {
+				var child = select3.children[i];
+				if (child.value == color3) {
+					child.selected = "true";
+				}
+			}
+		}
+	}
+	</script>
+
+	<body onload="restore_options()">
+		<h1>Highlight colors</h1>
+		<p>
+			Archive files(.zip .tar .7z)
+			<select id="color1">
+				<option value="_">None</options>
+				<option value="red">Red</option>
+				<option value="green">Green</option>
+				<option value="blue">Blue</option>
+				<option value="yellow">Yellow</option>
+				<option value="orange">Orange</option>
+				<option value="pink">Pink</option>
+				<option value="aqua">Aqua</option>
+			</select>
+		</p>
+		<p>
+			Executable files(.exe .msi)
+			<select id="color2">
+				<option value="_">None</options>
+				<option value="red">Red</option>
+				<option value="green">Green</option>
+				<option value="blue">Blue</option>
+				<option value="yellow">Yellow</option>
+				<option value="orange">Orange</option>
+				<option value="pink">Pink</option>
+				<option value="aqua">Aqua</option>
+			</select>
+		</p>
+		<p>
+			Other links
+			<select id="color3">
+				<option value="_">None</options>
+				<option value="red">Red</option>
+				<option value="green">Green</option>
+				<option value="blue">Blue</option>
+				<option value="yellow">Yellow</option>
+				<option value="orange">Orange</option>
+				<option value="pink">Pink</option>
+				<option value="aqua">Aqua</option>
+			</select>
+		</p>
+		<button onclick="save_options()">Save</button>
+	</body>
+</html>
